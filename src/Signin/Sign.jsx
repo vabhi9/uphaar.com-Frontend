@@ -29,8 +29,8 @@ const SigninWithEmail = () => {
 
       console.log("Login Success: ", res.data);
       // ✅ Redirect to Profile route
-      userProfile();
-      navigate("/profile");
+      await userProfile();
+      await navigate("/profile");
       console.log("Code Runs untill here....")
     } catch (err) {
       console.error(err.response?.data || err.message);
