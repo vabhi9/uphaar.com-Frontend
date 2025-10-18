@@ -9,7 +9,10 @@ const S2 = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/product/frontProducts`)
+      .get(
+        `${import.meta.env.VITE_API_BASE_URL}/api/v1/product/frontProducts`,
+        { withCredentials: true }
+      )
       .then((response) => {
         if (Array.isArray(response.data.data)) {
           setProducts(response.data.data);
