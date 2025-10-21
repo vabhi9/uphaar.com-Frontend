@@ -15,29 +15,34 @@ const SigninWithEmail = () => {
   const navigate = useNavigate();
   const { userProfile } = useContext(UserContext);
 
-  const loginUser = async () => {
-    setLoading(true);
-    try {
-      const res = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/api/users/login`,
-        { email, password },
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
+const loginUser = async () => {
+  setLoading(true);
+  try {
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_BASE_URL}/api/users/login`,
+      { email, password },
+      {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      }
+    );
 
-      console.log("Login Success: ", res.data);
-      // ✅ Redirect to Profile route
-      await userProfile();
-      await navigate("/profile");
-      console.log("Code Runs untill here....")
-    } catch (err) {
-      console.error(err.response?.data || err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+    console.log("Login Success: ", res.data);
+
+    // Wait a tiny bit to ensure cookie/session is applied (optional)
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
+    // Fetch user data
+    await userProfile();
+
+    // Navigate after user data is fetched
+    navigate("/profile");
+  } catch (err) {
+    console.error(err.response?.data || err.message);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <>
