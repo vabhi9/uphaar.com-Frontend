@@ -23,7 +23,7 @@ const About = ({ aboutRef }) => {
         </h2>
         <p className="mt-4 text-gray-700 text-center md:text-left leading-relaxed">
           At{" "}
-          <span className="font-semibold text-blue-700">M Divine Creation</span>
+          <span className="font-semibold text-blue-700">Uphaar.com</span>
           , we believe every gift should tell a story. We specialize in turning
           ordinary moments into extraordinary memories with our curated range of
           corporate gifts — from T-shirts and mugs to custom employee welcome

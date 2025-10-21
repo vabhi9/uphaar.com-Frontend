@@ -10,7 +10,7 @@ const Sect2 = () => {
       <div className="h-[80%] flex flex-col justify-around items-center">
         <h2 className="text-2xl font-bold">About Us</h2>
         <p className="text-center text-gray-700 w-[85%]">
-          M Divine Creation is your trusted corporate gifting partner, offering
+          Uphaar.com Creation is your trusted corporate gifting partner, offering
           premium, customizable gift solutions for businesses. We specialize in
           curated gift boxes, personalized merchandise, and eco-friendly gifting
           options.

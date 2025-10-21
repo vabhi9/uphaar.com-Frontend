@@ -30,7 +30,7 @@ const Navbar = () => {
         className="h-12 w-full bg-Primary flex justify-between items-center p-3"
       >
         <div className="text-white">
-          info@mdivinecraetion.com | +91-2464476809
+          info@uphaar.com | +91-2464576807
         </div>
         <div className="">
           <NavLink to={userId ? "/profile" : "/signin"}>

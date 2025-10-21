@@ -24,7 +24,7 @@ const Footer = () => {
 
       {/* Bottom copyright */}
       <div className="text-center text-gray-500 text-sm py-3 border-t border-gray-300">
-        © 2025 M Divine Creation. All Rights Reserved.
+        © 2025 Uphaar.com | All Rights Reserved.
       </div>
     </footer>
   );

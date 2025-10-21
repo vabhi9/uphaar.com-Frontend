@@ -1,5 +1,4 @@
-import React from "react";
-import { MdLocationOn } from "react-icons/md";
+import { MdLocationOn ,} from "react-icons/md";
 import { FaMailBulk } from "react-icons/fa";
 import { FcConferenceCall } from "react-icons/fc";
 import { GiExtraTime } from "react-icons/gi";
@@ -41,14 +40,14 @@ const Contact = ({ contactRef }) => {
         {/* Call */}
         <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col justify-center items-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
           <FcConferenceCall className="h-12 w-12 mb-3" />
-          <p className="text-gray-700 font-semibold text-lg">+91 98765 43210</p>
+          <p className="text-gray-700 font-semibold text-lg">+91 92637 39259</p>
           <p className="text-gray-500 text-sm text-center">
             Call us Mon–Fri (9 AM – 6 PM) for immediate assistance.
           </p>
         </div>
 
         {/* Timings */}
-        <div className="bg-white shadow-md rounded-2xl p-6 flex flex-col justify-center items-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div className="bg-white shadow-md rounded-2xl p-4 flex flex-col justify-center items-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
           <GiExtraTime className="text-Primary h-12 w-12 mb-3" />
           <p className="text-gray-700 font-semibold text-lg">Working Hours</p>
           <p className="text-gray-500 text-sm text-center">

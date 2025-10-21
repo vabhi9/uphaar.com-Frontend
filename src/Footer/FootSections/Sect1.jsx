@@ -13,12 +13,12 @@ const Sect1 = () => {
           📍 Address: 3152, Vikas Marg, Sector 46, Gurugram, Haryana 122003
         </span>
         <span className="text-center leading-tight max-w-lg mx-auto">
-          📞 Phone: +91 9263 3925
+          📞 Phone: +91 92637 39259
         </span>
         <span className="text-center leading-tight max-w-lg mx-auto">
-          Email: info@mdivinecreation.com 📲
+          Email: info@uphaar.com 📲
         </span>
-        <span>WhatsApp: +91 966 39925</span>
+        <span>WhatsApp: +91 98624 79425</span>
       </div>
     </div>
   );
