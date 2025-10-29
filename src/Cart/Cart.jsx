@@ -4,11 +4,11 @@ import { useCart } from "./CartContext";
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useCart();
-  // console.log("CART", cart);
-  // const total = cart.reduce(
-  //   (sum, item) => sum + item.price * (item.qty || 1),
-  //   0
-  // );
+  console.log("CART", cart);
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * (item.qty || 1),
+    0
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white flex justify-center py-10 px-4">
