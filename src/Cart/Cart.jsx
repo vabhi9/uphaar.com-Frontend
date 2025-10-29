@@ -71,12 +71,7 @@ const Cart = () => {
                   <div className="flex items-center gap-6">
                     <p className="text-[#012C4F] font-semibold text-lg">
                       {/* ₹{(item.price * item.qty).toLocaleString()} */}₹
-                      {item.productId.price}
-                    </p>
-                    <p className="text-[#012C4F] font-semibold text-lg">
-                      {/* ₹{(item.price * item.qty).toLocaleString()} */}₹
-                      {item}
-                      {item.productId}
+                      {item.productId?.price}
                     </p>
                     <button
                       // onClick={() => removeItem(item.id)}
