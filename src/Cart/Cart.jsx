@@ -6,10 +6,10 @@ import { useCart } from "./CartContext";
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useCart();
   console.log("CART", cart);
-  const total = cart.reduce(
-    (sum, item) => sum + item.price * (item.qty || 1),
-    0
-  );
+  // const total = cart.reduce(
+  //   (sum, item) => sum + item.price * (item.qty || 1),
+  //   0
+  // );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white flex justify-center py-10 px-4">
@@ -64,7 +64,7 @@ const Cart = () => {
                       </h3>
                       <p className="text-sm text-gray-500">
                         {/* ₹{item.price.toLocaleString()} × {item.qty} */}₹
-                        {item.productId?.price}
+                        {/* {item.productId?.price} */}
                       </p>
                     </div>
                   </div>
@@ -72,7 +72,7 @@ const Cart = () => {
                   <div className="flex items-center gap-6">
                     <p className="text-[#012C4F] font-semibold text-lg">
                       {/* ₹{(item.price * item.qty).toLocaleString()} */}₹
-                      {item.productId?.price}
+                      {/* {item.productId?.price} */}
                     </p>
                     <button
                       // onClick={() => removeItem(item.id)}
