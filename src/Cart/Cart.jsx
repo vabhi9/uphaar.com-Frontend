@@ -63,7 +63,13 @@ const Cart = () => {
                       </h3>
                       <p className="text-sm text-gray-500">
                         {/* ₹{item.price.toLocaleString()} × {item.qty} */}₹
-                        {item.productId.price}
+                        {item.productId?.price}
+                        {console.log("item", item)}
+                        {console.log("item.productId", item.productId)}
+                        {console.log(
+                          "item.productId.price",
+                          item.productId.price
+                        )}
                       </p>
                     </div>
                   </div>
