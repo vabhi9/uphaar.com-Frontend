@@ -56,18 +56,18 @@ const Cart = () => {
                   {console.log("item.productId.price",item.productId.price)}
                   {console.log(cart)}
                   <div className="flex items-center gap-4">
-                    {/* <img
+                    <img
                       src={item.productId.image}
                       alt={item.productId.productName}
                       className="w-16 h-16 rounded-lg object-cover"
-                    /> */}
+                    />
                     <div>
                       <h3 className="text-[#0F497F] font-semibold text-lg">
                         {item.productId?.productName}
                       </h3>
                       <p className="text-sm text-gray-500">
                         {/* ₹{item.price.toLocaleString()} × {item.qty} */}₹
-                        {/* {item.productId?.price} */}
+                        {item.productId?.price}
                       </p>
                     </div>
                   </div>
@@ -94,8 +94,8 @@ const Cart = () => {
             {/* Summary Section */}
             <div className="border-t mt-8 pt-6 flex justify-between items-center">
               <p className="text-lg font-semibold text-gray-700">
-                Total:{" "} | Hey
-                {/* <span className="text-primary">₹{total.toLocaleString()}</span> */}
+                Total:{" "}
+                <span className="text-primary">₹{total.toLocaleString()}</span>
               </p>
               <button className="bg-[#0F497F] text-white px-6 py-2 rounded-xl shadow-md hover:bg-[#012C4F] transition">
                 Proceed to Checkout
