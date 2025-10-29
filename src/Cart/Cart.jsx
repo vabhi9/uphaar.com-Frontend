@@ -46,15 +46,18 @@ const Cart = () => {
             <div className="space-y-6">
               {cart.map((item, index) => (
                 <motion.div
-                  key={item.id || index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center justify-between bg-gray-50 hover:bg-gray-100 rounded-xl p-4 shadow-sm"
+                key={item.id || index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center justify-between bg-gray-50 hover:bg-gray-100 rounded-xl p-4 shadow-sm"
                 >
+                  {console.log("item.productName",item.productId.productName)}
+                  {console.log("item.productId.image",item.productId.image)}
+                  {console.log("item.productId.price",item.productId.price)}
                   <div className="flex items-center gap-4">
                     <img
-                      src={item.image}
-                      alt={item.name}
+                      src={item.productId.image}
+                      alt={item.productId.productName}
                       className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div>
@@ -71,7 +74,7 @@ const Cart = () => {
                   <div className="flex items-center gap-6">
                     <p className="text-[#012C4F] font-semibold text-lg">
                       {/* ₹{(item.price * item.qty).toLocaleString()} */}₹
-                      {/* {item.productId?.price} */}
+                      {item.productId?.price}
                     </p>
                     <button
                       // onClick={() => removeItem(item.id)}
