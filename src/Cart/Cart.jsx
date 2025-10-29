@@ -5,7 +5,7 @@ import { useCart } from "./CartContext";
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useCart();
-  console.log("CART", cart);
+  // console.log("CART", cart);
   // const total = cart.reduce(
   //   (sum, item) => sum + item.price * (item.qty || 1),
   //   0
@@ -51,7 +51,6 @@ const Cart = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-center justify-between bg-gray-50 hover:bg-gray-100 rounded-xl p-4 shadow-sm"
                 >
-                  {console.log(item)}
                   <div className="flex items-center gap-4">
                     <img
                       src={item.image}
