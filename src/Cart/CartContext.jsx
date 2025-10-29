@@ -43,9 +43,11 @@ export const CartProvider = ({ children }) => {
 
     fetchCart();
   }, [userId]);
-
+  //Here
   const addToCart = async (item) => {
-    const isAlreadyInCart = cart.some((cartItem) => cartItem._id === item._id);
+    const isAlreadyInCart = cart.some(
+      (cartItem) => cartItem.productId._id === item._id
+    );
     if (isAlreadyInCart) {
       console.log("Item already in cart!");
       toast.warning("Item is already in the cart! 🛒", { autoClose: 2000 });
@@ -68,7 +70,10 @@ export const CartProvider = ({ children }) => {
       );
 
       if (res.status === 200) {
-        setCart((prev) => [...prev, item]);
+        setCart((prev) => [
+          ...prev,
+          { productId: item, quantity: 1 }, // ✅ match backend structure
+        ]);
         toast.success("Item added to cart! 🛒", { position: "top-right" });
       }
     } catch (error) {
@@ -88,7 +93,9 @@ export const CartProvider = ({ children }) => {
 
       if (res.status === 200) {
         // setCart(prev => prev.filter(item => item._id !== productId));
-        setCart(res.data.items);
+        setCart((prev) =>
+          prev.filter((item) => item.productId._id !== productId)
+        );
         toast.success("Item removed from cart 🗑️", { position: "top-right" });
       }
     } catch (error) {
