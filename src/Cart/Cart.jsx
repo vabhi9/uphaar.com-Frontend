@@ -51,9 +51,6 @@ const Cart = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-center justify-between bg-gray-50 hover:bg-gray-100 rounded-xl p-4 shadow-sm"
                 >
-                  {console.log("item", item)}
-                  {console.log("item.productId", item.productId)}
-                  {console.log("item.productId.price", item.productId.price)}
                   <div className="flex items-center gap-4">
                     <img
                       src={item.image}
@@ -75,6 +72,11 @@ const Cart = () => {
                     <p className="text-[#012C4F] font-semibold text-lg">
                       {/* ₹{(item.price * item.qty).toLocaleString()} */}₹
                       {item.productId.price}
+                    </p>
+                    <p className="text-[#012C4F] font-semibold text-lg">
+                      {/* ₹{(item.price * item.qty).toLocaleString()} */}₹
+                      {item}
+                      {item.productId}
                     </p>
                     <button
                       // onClick={() => removeItem(item.id)}
