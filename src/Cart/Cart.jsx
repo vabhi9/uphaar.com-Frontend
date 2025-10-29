@@ -51,6 +51,7 @@ const Cart = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-center justify-between bg-gray-50 hover:bg-gray-100 rounded-xl p-4 shadow-sm"
                 >
+                  {console.log(item)}
                   <div className="flex items-center gap-4">
                     <img
                       src={item.image}
@@ -90,8 +91,8 @@ const Cart = () => {
             {/* Summary Section */}
             <div className="border-t mt-8 pt-6 flex justify-between items-center">
               <p className="text-lg font-semibold text-gray-700">
-                Total:{" "}
-                <span className="text-primary">₹{total.toLocaleString()}</span>
+                Total:{" "} | Hey
+                {/* <span className="text-primary">₹{total.toLocaleString()}</span> */}
               </p>
               <button className="bg-[#0F497F] text-white px-6 py-2 rounded-xl shadow-md hover:bg-[#012C4F] transition">
                 Proceed to Checkout
