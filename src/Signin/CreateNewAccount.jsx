@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import SignImage from "./Sign_image2.jpeg";
+import SignImage from "./Sign_Image.jpeg";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";

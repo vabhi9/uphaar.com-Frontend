@@ -41,7 +41,7 @@ const Routes = createBrowserRouter([
   {
     element: <Layout />, // Wrap all routes inside Layout to apply ScrollToTop globally
     children: [
-      { path: "/signin", element: <SigninWithEmail /> },
+      { path: "/login", element: <SigninWithEmail /> },
       {
         path: "/profile",
         element: (

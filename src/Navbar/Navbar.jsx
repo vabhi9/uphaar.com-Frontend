@@ -35,7 +35,7 @@ const Navbar = () => {
       >
         <div className="text-white">info@uphaar.com | +91-2464576807</div>
         <div>
-          <NavLink to={userId ? "/profile" : "/signin"}>
+          <NavLink to={userId ? "/profile" : "/login"}>
             <div className="bg-white px-3 py-1 rounded-xl active:scale-95 duration-500">
               {userId ? "Profile" : "Sign In"}
             </div>
@@ -134,7 +134,7 @@ const Navbar = () => {
               <li onClick={() => handleNavigation("contact")}>Contact Us</li>
               <li>
                 <NavLink
-                  to={userId ? "/profile" : "/signin"}
+                  to={userId ? "/profile" : "/login"}
                   onClick={() => setMenuOpen(false)}
                 >
                   {userId ? "Profile" : "Sign In"}
