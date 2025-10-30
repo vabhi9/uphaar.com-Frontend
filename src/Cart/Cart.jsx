@@ -50,10 +50,6 @@ const Cart = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="flex items-center justify-between bg-gray-50 hover:bg-gray-100 rounded-xl p-4 shadow-sm"
                 >
-                  {console.log("item", typeof(item))}
-                  {console.log("item.productName",typeof(item.productId.productName))}
-                  {console.log("item.productId.image",item.productId.image)}
-                  {console.log("item.productId.price",item.productId.price)}
                   {console.log(cart)}
                   <div className="flex items-center gap-4">
                     <img
@@ -73,7 +69,7 @@ const Cart = () => {
                   </div>
 
                   <div className="flex items-center gap-6">
-                    <p className="text-[#012C4F] font-semibold text-lg">
+                    <p className="text-[#012C4F] font-semibold text-lg md:block hidden">
                       {/* ₹{(item.price * item.qty).toLocaleString()} */}₹
                       {item.productId?.price}
                     </p>

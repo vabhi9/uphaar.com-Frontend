@@ -22,6 +22,7 @@ import WhyUs from "./Body/WhyUs.jsx";
 import Profile from "./Signin/Profile.jsx";
 import Cart from "./Cart/Cart.jsx";
 import UserContextProvider from "./Context/UserContextProvider.jsx";
+import RegisterWithEmail from "./Signin/CreateNewAccount.jsx";
 
 // import Welcome from "./Signin.jsx/Welcome.jsx";
 // import AuthHandler from "./Signin.jsx/AuthHandler.jsx";
@@ -96,6 +97,7 @@ const Routes = createBrowserRouter([
       { path: "/welcome", element: <Welcome /> },
       { path: "/product", element: <ProDesc /> },
       { path: "/why_us", element: <WhyUs /> },
+      { path: '/registerUser', element: <RegisterWithEmail /> },
       // { path: "/prods", element: <Cart /> },
       // { path: "/verifiedSuccessfully", element: <VerifiedSuccessfully /> },
       // { path: "/welcome", element: <Welcome /> },

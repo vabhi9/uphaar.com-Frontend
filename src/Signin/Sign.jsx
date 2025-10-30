@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import SignImage from './Sign_image2.jpeg'
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordFill } from "react-icons/ri";
 import axios from "axios";
@@ -86,7 +87,7 @@ const SigninWithEmail = () => {
                   />
                 </div>
                 <div className="h-5 w-full flex justify-between items-center">
-                  <p className="text-sm hover:cursor-pointer">
+                  <p className="text-sm hover:cursor-pointer" onClick={() => navigate('/registerUser')}>
                     Create a New Account
                   </p>
                   <p className="text-sm hover:cursor-pointer">
@@ -97,14 +98,16 @@ const SigninWithEmail = () => {
                   className="w-full bg-Primary p-2 rounded-xl font-bold text-xl active:scale-[0.85] duration-700 text-white"
                   onClick={() => loginUser()}
                 >
-                  Register
+                  Login
                 </button>
                 {/* <button className="w-full bg-Primary p-2 rounded-xl font-bold text-xl active:scale-[0.85] duration-700 text-white">
               Register
             </button> */}
               </div>
             </div>
-            <div className="basis-1/2 bg-Primary rounded-r-3xl ">Image</div>
+            <div className="basis-1/2 bg-Primary rounded-r-3xl ">
+            <img src={SignImage} alt="" className="h-full w-full"/>
+            </div>
           </section>
         </div>
       )}

@@ -18,15 +18,14 @@ const ProductLayout = () => {
   const { addToCart } = useCart();
   const [selectedCheck, setSelectedCheck] = useState(null);
   const [products, setProducts] = useState([]);
+  const { category } = useParams();
+  const { hideRedBox } = useVisibility();
 
   const handleCheckboxChange = (min, max) => {
     setSelectedCheck((prev) =>
       prev && prev.min === min && prev.max === max ? null : { min, max }
     );
   };
-
-  // Code for Dynamically Fetch Data on the Basis of Different Categories
-  const { category } = useParams();
 
   const filteredItems = products.filter(
     (item) =>
@@ -42,125 +41,90 @@ const ProductLayout = () => {
         }/api/v1/product/register/${category}`
       )
       .then((response) => {
-        console.log("API Response:", response.data);
-
-        const aray = Array.isArray(response.data.data);
-        console.log(aray);
-
         if (Array.isArray(response.data.data)) {
-          setProducts(response.data.data); // Directly set the array of objects
-        } else {
-          console.warn("Unexpected response format, setting empty array");
-          setProducts([]);
-        }
+          setProducts(response.data.data);
+        } else setProducts([]);
       })
-      .catch((error) => {
-        console.error("API Error:", error);
-        setProducts([]);
-      });
+      .catch(() => setProducts([]));
   }, [category]);
 
-  const { hideRedBox } = useVisibility();
   return (
-    <>
-      <div className="h-auto w-full bg-red-30 flex">
-        <section
-          className="bg-blue-500 basis-[20%] flex justify-center place-items-start"
-          id="S1"
-        >
-          {!hideRedBox && (
-            <div
-              className="sticky top-10 my-7 min-h-[80vh] max-h-[78vh] w-[94%] rounded-2xl bg-red-300
-            flex flex-col items-center justify-between py-10 z-10"
-            >
-              <h1 className="font-bold text-4xl">Price:</h1>
-              <div className="flex flex-col text-2xl px-6 space-y-4 w-full">
-                {checkBoxes.map(({ label, min, max }, index) => {
-                  return (
-                    <div key={index}>
-                      <label className="space-y-6 bg-yello-500 w-full">
-                        <input
-                          type="checkbox"
-                          className="w-5 h-5 cursor-pointer"
-                          checked={
-                            selectedCheck &&
-                            selectedCheck.min === min &&
-                            selectedCheck.max === max
-                          }
-                          onChange={() => handleCheckboxChange(min, max)}
-                        />
-                        <span className="ml-3">{label}</span>
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </section>
-        <section
-          className=" w-full flex justify-center items-center basis-[80%]"
-          id="S2"
-        >
-          <div
-            className="h-[97%] grid grid-cols-4 gap-y-3"
-            style={{ flexBasis: "98%" }}
-          >
-            {filteredItems.length > 0 ? (
-              filteredItems.map((Product) => (
-                <Link to={`/product`} state={Product}>
-                  <div
-                    className="h-[26rem] bg-offWhite border-y-[1.4px] border-x-[1px] border-slate-600
-                 flex justify-center items-start flex-wrap hover:-translate-y-2 duration-500 hover:rounded-3xl"
-                    key={Product._id}
-                    // onClick={() => navigate(`/product/${Product._id}`)}
-                  >
-                    <div
-                      className="h-[90%] w-[95%] bg-slae-500 bg-yelow-400 justify-around px-1
-                flex flex-col items-start flex-wrap hover: cursor-pointer rounded-xl"
-                    >
-                      {console.log("Product is:", Product.productName)}
-                      {/* <div
-                      className="bg-Primary basis-[55%] w-full rounded-xl mt-2"
-                      id="img"
-                    > */}
-                      <img
-                        src={Product.image}
-                        alt=""
-                        // className="rounded-xl h-[98%] w-[100%] basis-[55%] overflow-hidden"
-                        className="bg-Primary w-full rounded-xl mt-2 h-[55%]"
-                      />
-                      {/* <p>{Product.image}</p> */}
-                      {/* </div> */}
-                      <div className="">{Product.productName}</div>
-                      <div className="">{Product.category}</div>
-                      <p className="">{Product.price}</p>
-
-                      {/* Add to Cart Button */}
-                      <button
-                        className="bg-blue-600 text-white px-4 py-2 rounded mt-2"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          addToCart(Product);
-                        }}
-                      >
-                        Add to Cart
-                      </button>
-                    </div>
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <p className="col-spn-4 text-center text-lg">
-                No products match the selected filters.
-              </p>
-            )}
+    <div className="w-full min-h-screen bg-white flex flex-col md:flex-row">
+      {/* Sidebar */}
+      {!hideRedBox && (
+        <aside className="w-full md:w-1/5 bg-blue-50 md:sticky md:top-10 p-6 flex flex-col items-center md:items-start border-r border-gray-300">
+          <h1 className="font-bold text-2xl mb-6 text-blue-700">
+            Filter by Price
+          </h1>
+          <div className="flex flex-wrap md:flex-col gap-4 text-lg w-full">
+            {checkBoxes.map(({ label, min, max }, index) => (
+              <label
+                key={index}
+                className="flex items-center gap-3 cursor-pointer"
+              >
+                <input
+                  type="checkbox"
+                  className="w-5 h-5 accent-blue-600"
+                  checked={
+                    selectedCheck &&
+                    selectedCheck.min === min &&
+                    selectedCheck.max === max
+                  }
+                  onChange={() => handleCheckboxChange(min, max)}
+                />
+                <span>{label}</span>
+              </label>
+            ))}
           </div>
-        </section>
-      </div>
-      {/* <Cart /> */}
-    </>
+        </aside>
+      )}
+
+      {/* Product Grid */}
+      <section className="flex-1 flex justify-center items-start p-4 flex-wrap">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredItems.length > 0 ? (
+            filteredItems.map((Product) => (
+              <Link
+                to={`/product`}
+                state={Product}
+                key={Product._id}
+                className="bg-offWhite border border-slate-300 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-transform duration-300"
+              >
+                <div className="flex flex-col items-start p-3 h-full">
+                  <img
+                    src={Product.image}
+                    alt={Product.productName}
+                    className="w-full h-52 object-cover rounded-xl mb-3"
+                  />
+                  <h2 className="font-semibold text-lg text-gray-800">
+                    {Product.productName}
+                  </h2>
+                  <p className="text-gray-500 text-sm">{Product.category}</p>
+                  <p className="text-blue-600 font-bold mt-1">
+                    ₹{Product.price}
+                  </p>
+
+                  <button
+                    className="bg-blue-600 text-white px-4 py-2 rounded mt-auto w-full hover:bg-blue-700 transition-colors duration-300"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      addToCart(Product);
+                    }}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p className="col-span-full text-center text-gray-600 text-lg">
+              No products match the selected filters.
+            </p>
+          )}
+        </div>
+      </section>
+    </div>
   );
 };
 

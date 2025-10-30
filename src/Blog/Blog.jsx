@@ -29,6 +29,8 @@ const blogArr = [
   },
 ];
 
+alert("Currently This Section is Under Developement....😅")
+
 const Blog = () => {
   return (
     <div className="h-auto w-full bg-red-60 flex justify-center items-center">
