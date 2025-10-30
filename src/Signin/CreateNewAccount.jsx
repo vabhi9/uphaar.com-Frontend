@@ -41,9 +41,11 @@ const RegisterWithEmail = () => {
           withCredentials: true,
         }
       );
-
+      alert(
+        "Account Created Successfully, Now we're Redirectig You To Login Page, Now Login with Your Credentials"
+      );
       console.log("Register Success:", res.data);
-        navigate("/login");
+      navigate("/login");
     } catch (err) {
       console.error("Register Error:", err.response?.data || err.message);
       alert(err.response?.data?.message || "Registration failed!");
