@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import uphaarLogo2 from './uphaar_Logo2.jpg'
+import uphaarLogo from './uphaar_Logo.jpg'
 import { scrollFix } from "../utils/Scroll.js";
-import MDiv from "./MDiv.png";
 import Hover from "../utils/Hover";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useCart } from "../Cart/CartContext";
@@ -50,7 +49,7 @@ const Navbar = () => {
         className="h-24 w-full bg-Secondary md:flex justify-between items-center px-3 hidden"
       >
         <img
-          src={uphaarLogo2}
+          src={uphaarLogo}
           alt="Logo"
           className="cursor-pointer w-[12%] ml-[12px] h-[80%]"
         />

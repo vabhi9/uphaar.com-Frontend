@@ -29,21 +29,22 @@ const blogArr = [
   },
 ];
 
-alert("Currently This Section is Under Developement....😅")
-
 const Blog = () => {
   return (
     <div className="h-auto w-full bg-red-60 flex justify-center items-center">
+      {setTimeout(() => {
+        alert("Currently This Section is Under Developement....😅");
+      }, 1200)}
       <div
         className="grid grid-cols-3
-       h-[90%] w-[70%] bg-offWhite gap-x-6 gap-y-4 py-10 px-4"
+        h-[90%] w-[70%] bg-offWhite gap-x-6 gap-y-4 py-10 px-4"
       >
         {blogArr.map((Blog, index) => {
           return (
             <div
               key={index}
               className="bg-slate-500 h-[23rem] duration-[400ms] rounded-2xl hover:scale-105
-             flex flex-col justify-center items-center overflow-hidden"
+            flex flex-col justify-center items-center overflow-hidden"
             >
               <div
                 className="w-[95%] bg-slate-60 rounded-2xl flex flex-col justify-between"
