@@ -43,7 +43,7 @@ const RegisterWithEmail = () => {
       );
 
       console.log("Register Success:", res.data);
-        navigate("/signin");
+        navigate("/login");
     } catch (err) {
       console.error("Register Error:", err.response?.data || err.message);
       alert(err.response?.data?.message || "Registration failed!");
