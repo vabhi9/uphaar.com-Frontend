@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import uphaarLogo from './uphaar_Logo.jpg'
+import uphaarLogo from "./uphaar_Logo.jpg";
 import { scrollFix } from "../utils/Scroll.js";
 import Hover from "../utils/Hover";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -53,8 +53,8 @@ const Navbar = () => {
           alt="Logo"
           className="cursor-pointer w-[12%] ml-[12px] h-[80%]"
         />
-        <div>Text</div>
-        <div>Google-Reviews</div>
+        <div className="text-offWhite font-medium text-4xl">Welcome </div>
+        <div className="font-medium text-3xl">⭐⭐⭐</div>
       </section>
 
       {/* --- Section 3 (Main Navbar) --- */}
