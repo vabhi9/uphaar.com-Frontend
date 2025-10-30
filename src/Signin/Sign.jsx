@@ -87,7 +87,10 @@ const SigninWithEmail = () => {
                   />
                 </div>
                 <div className="h-5 w-full flex justify-between items-center">
-                  <p className="text-sm hover:cursor-pointer" onClick={() => navigate('/registerUser')}>
+                  <p
+                    className="text-sm hover:cursor-pointer"
+                    onClick={() => navigate("/registerUser")}
+                  >
                     Create a New Account
                   </p>
                   <p className="text-sm hover:cursor-pointer">
@@ -105,8 +108,12 @@ const SigninWithEmail = () => {
             </button> */}
               </div>
             </div>
-            <div className="basis-1/2 bg-Primary rounded-r-3xl ">
-            <img src={SignImage} alt="" className="h-full w-full"/>
+            <div className="basis-1/2 bg-Primary rounded-r-3xl overflow-hidden">
+              <img
+                src={SignImage}
+                alt=""
+                className="h-full w-full"
+              />
             </div>
           </section>
         </div>
